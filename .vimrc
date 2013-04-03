@@ -58,13 +58,7 @@ au BufRead,BufNewFile bash-fc-* set filetype=sh
 let mapleader=","
 
 filetype plugin on
-
-function Maximize()
-	!printf '\e[8;50;128t'
-endfunction
-
-"nnoremap ,m :call Maximize() <CR> <CR> 
-
+"
 " comment line -- t-coment
 map <leader>c <c-_><c-_>
 " code completion (module level), use c-n || c-p for file level
