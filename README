@@ -37,6 +37,7 @@ function vim {
 	cd ${cwd}
 	cp -R .vim ..
 	cp .vimrc ..
+	modules
 }
 
 function all {
