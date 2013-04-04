@@ -1,4 +1,6 @@
-# git clone https://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README
+# sh -c "git clone https://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README"
 for i in $(ls -A); do mv $i ..; done
 cd ..
 rmdir dotfiles/
+git submodule init
+git submodule update
