@@ -1,6 +1,69 @@
 # sh -c "git clone https://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README"
-for i in $(ls -A); do mv $i ..; done
-cd ..
-rmdir dotfiles/
-git submodule init
-git submodule update
+# Add plugins: git submodule add http://github.com/PLUG .vim/plugins/PLUG ; git add...
+#
+# Manual:
+# for i in $(ls -A); do mv $i ..; done
+# cd ..
+# rmdir dotfiles/
+# git submodule init
+# git submodule update
+
+cwd=$(pwd)
+
+function clean {
+	cd ${cwd}/..
+	rm -rf dotfiles/
+	exit
+}
+
+function backup {
+	cd ${cwd}
+	backupdir=../dotbackup-$$
+	mkdir ${backupdir}
+	
+	for i in $(ls -A)
+	do
+		[ -e ../${i} ] && cp -R ../${i} ${backupdir}
+	done
+}
+
+function modules {
+	cd ${cwd}
+	git submodule init
+	git submodule update
+}
+
+function vim {
+	cd ${cwd}
+	cp -R .vim ..
+	cp .vimrc ..
+}
+
+function all {
+	for i in $(ls -A); do mv $i ..; done
+}
+
+while :
+do
+	echo "1) Copy whole envoriment"
+	echo "2) Copy whole envoriment, with backup"
+	echo "3) Copy vim envoriment"
+	echo "4) Copy vim envoriment, with backup"
+	echo "q) quit this script"
+	read -p "> " IN
+	case ${IN} in
+		1) all && clean
+			;;
+		2) backup ; all && clean
+			;;
+		3) vim && clean
+			;;
+		4) backup ; vim && clean
+			;;
+		[Qq]) break
+			;;
+		*) echo "* select 1-4 or q"
+			;;
+	esac
+done
+

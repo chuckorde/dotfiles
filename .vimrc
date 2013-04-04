@@ -13,17 +13,6 @@ set noexpandtab
 filetype indent on
 set autoindent
 set smartindent
-"syntax on
-"set listchars=tab:>-
-"set listchars+=trail:.
-"set ignorecase
-"set smartcase
-"map <C-t><up> :tabr<cr>
-"map <C-t><down> :tabl<cr>
-"map <C-t><left> :tabp<cr>
-"map <C-t><right> :tabn<cr>
-
-" learn to vi!
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -61,14 +50,11 @@ filetype plugin on
 "
 " comment line -- t-coment
 map <leader>c <c-_><c-_>
-" code completion (module level), use c-n || c-p for file level
-"imap <C-tab> <C-x><C-o> 
 
 inoremap <leader>, <C-x><C-o>
 set completeopt=menu,menuone,longest
 let g:user_zen_leader_key = '<C-e>'
 
-"let g:ctrlp_map='<leader><space>'
 let g:ctrlp_map=''
 nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
