@@ -1,0 +1,21 @@
+[submodule "/Users/corde/.vim/plugins/ctrlp"]
+	path = /Users/corde/.vim/plugins/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "/Users/corde/.vim/plugins/snipmate"]
+	path = /Users/corde/.vim/plugins/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "/Users/corde/.vim/plugins/tcomment"]
+	path = /Users/corde/.vim/plugins/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "/Users/corde/.vim/plugins/fugitive"]
+	path = /Users/corde/.vim/plugins/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "/Users/corde/.vim/plugins/repeat"]
+	path = /Users/corde/.vim/plugins/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "/Users/corde/.vim/plugins/surround"]
+	path = /Users/corde/.vim/plugins/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "/Users/corde/.vim/plugins/zencoding"]
+	path = /Users/corde/.vim/plugins/zencoding
+	url = https://github.com/mattn/zencoding-vim.git
