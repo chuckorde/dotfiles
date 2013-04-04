@@ -1,5 +1,4 @@
-# git clone https://github.com/chuckorde/dotfiles.git
-# then: cd dotfiles && sh README
+# git clone https://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README
 for i in $(ls -A); do mv $i ..; done
 cd ..
 rmdir dotfiles/
