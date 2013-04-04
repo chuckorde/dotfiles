@@ -19,3 +19,6 @@
 [submodule ".vim/plugins/zencoding"]
 	path = .vim/plugins/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule ".vim/plugins/matchit"]
+	path = .vim/plugins/matchit
+	url = https://github.com/tsaleh/vim-matchit.git
