@@ -2,6 +2,7 @@
 	co = checkout
 	br = branch
 	ci = commit
+	stat = status
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	#prune-all = !git remote | xargs -n 1 git remote prune
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"

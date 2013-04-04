@@ -4,8 +4,17 @@ set -o vi
 alias l='ls -l'
 alias ll='ls -latrF'
 alias eject='drutil eject'
+alias cdc='cd ~/Code'
+alias cdd='cd ~/Desktop'
 
-export PS1='\w{\!}[$?] '
+function md {
+	mkdir $@ && cd $@
+}
+
+# Out of office, or generally confused
+alias ooo="export OOO=$(uname -n):; . ~/.bash_profile"
+
+export PS1='${OOO}\w{\!}[$?] '
 export PATH=${PATH}:~/bin:/usr/texbin
 export PATH=${PATH}:/usr/local/Cellar/nmap/6.01/bin
 #export PATH=${PATH}:/usr/local/mysql/bin
