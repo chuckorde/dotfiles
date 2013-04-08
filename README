@@ -31,6 +31,8 @@ function modules {
 	cd ${cwd}/..
 	git submodule init
 	git submodule update
+	# hack to remove stock snippets
+	rm -rf .vim/plugins/snipmate/snippets 
 }
 
 function vim {
