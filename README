@@ -1,4 +1,4 @@
-# sh -c "git clone git://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README"
+# sh -xc "git clone git://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README"
 # Add plugins: git submodule add http://github.com/PLUG .vim/plugins/PLUG ; git add...
 #
 # Manual:
