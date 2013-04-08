@@ -19,3 +19,6 @@
 [submodule ".vim/plugins/matchit"]
 	path = .vim/plugins/matchit
 	url = git://github.com/tsaleh/vim-matchit.git
+[submodule ".vim/plugins/snipmate"]
+	path = .vim/plugins/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
