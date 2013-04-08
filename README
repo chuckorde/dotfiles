@@ -28,7 +28,7 @@ function backup {
 }
 
 function modules {
-	cd ${cwd}
+	cd ${cwd}/..
 	git submodule init
 	git submodule update
 }
