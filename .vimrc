@@ -58,4 +58,4 @@ let g:user_zen_leader_key = '<C-e>'
 let g:ctrlp_map=''
 nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-set cm=blowfish
+"set cm=blowfish

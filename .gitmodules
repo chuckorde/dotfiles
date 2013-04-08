@@ -1,24 +1,24 @@
 [submodule ".vim/plugins/ctrlp"]
 	path = .vim/plugins/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
+	url = git://github.com/kien/ctrlp.vim.git
 [submodule ".vim/plugins/snipmate"]
 	path = .vim/plugins/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git
 [submodule ".vim/plugins/tcomment"]
 	path = .vim/plugins/tcomment
-	url = https://github.com/tomtom/tcomment_vim.git
+	url = git://github.com/tomtom/tcomment_vim.git
 [submodule ".vim/plugins/fugitive"]
 	path = .vim/plugins/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/plugins/repeat"]
 	path = .vim/plugins/repeat
-	url = https://github.com/tpope/vim-repeat.git
+	url = git://github.com/tpope/vim-repeat.git
 [submodule ".vim/plugins/surround"]
 	path = .vim/plugins/surround
-	url = https://github.com/tpope/vim-surround.git
+	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/plugins/zencoding"]
 	path = .vim/plugins/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
+	url = git://github.com/mattn/zencoding-vim.git
 [submodule ".vim/plugins/matchit"]
 	path = .vim/plugins/matchit
-	url = https://github.com/tsaleh/vim-matchit.git
+	url = git://github.com/tsaleh/vim-matchit.git
