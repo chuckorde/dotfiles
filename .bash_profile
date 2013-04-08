@@ -9,6 +9,7 @@ alias eject='drutil eject'
 alias cdc='cd ~/Code'
 alias cdd='cd ~/Desktop'
 alias httphead='curl -I'
+alias tree="find . \( ! -regex '.*/\..*' \) | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 #alias apachectl='sudo apachectl'
 
 function md {
