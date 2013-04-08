@@ -41,7 +41,7 @@ function vim {
 }
 
 function all {
-	for i in $(ls -A); do mv $i ..; done
+	for i in $(ls -A); do mv -f $i ..; done
 }
 
 while :
