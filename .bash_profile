@@ -18,7 +18,7 @@ function md {
 }
 
 contains() {
-	find . -exec grep -il "python" {} 2>/dev/null \;
+	find . -exec grep -il $@ {} 2>/dev/null \;
 }
 
 export PS1='${OOO}\w{\!}[$?] '

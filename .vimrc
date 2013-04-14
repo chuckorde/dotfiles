@@ -5,7 +5,7 @@ set nocompatible
 "set term=$TERM
 set t_Co=256
 
-set listchars=tab:>-,trail:~
+set listchars=tab:\|-,trail:~
 "set list
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 set tabstop=4
