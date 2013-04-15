@@ -3,4 +3,4 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.kW}%-w%{.W}%{k}%n %t%{-}%{W}%{=b kw}%?%+w%? %=%C%a %d.%m.%Y" #B&W & date&time
 sorendition kw
-#term xterm-256color
+term screen-256color
