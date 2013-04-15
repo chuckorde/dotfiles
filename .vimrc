@@ -31,6 +31,40 @@ set virtualedit=onemore
 "set spell
 
 
+
+" Lifted from:
+" http://www.scarpa.name/2011/04/06/terminal-vim-resizing/
+" Function to size up.
+function SizeUpFunc()
+	if exists("g:oldColumns")
+		return
+	endif
+	" Save the current width.
+	let g:oldColumns = &columns
+	let g:oldLines = &lines
+	" Reset column size when Vim quits.
+	au VimLeave * SizeDown
+	" Bigger width to make room for line numbers and the sign markers.
+	set columns=85 lines=999
+endfunction
+command SizeUp call SizeUpFunc()
+
+" Function to size down.
+function SizeDownFunc()
+	if !exists("g:oldColumns")
+		return
+	endif
+	" Restore the original size.
+	let &columns = g:oldColumns
+	let &lines = g:oldLines
+	" Remove the variable.
+	unlet g:oldColumns
+	unlet g:oldLines
+endfunction
+command SizeDown call SizeDownFunc()
+
+
+
 colorscheme kolor
 "colorscheme pychimp 
 
@@ -41,6 +75,8 @@ if has("gui_running")
 	set guioptions-=r
 	au InsertLeave * highlight StatusLine guifg=grey guibg=#505050 
 	au InsertEnter * highlight StatusLine guifg=black guibg=white 
+else
+	SizeUp
 endif
 
 set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ 
@@ -72,37 +108,4 @@ nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 "set cm=blowfish
 
-" Lifted from:
-" http://www.scarpa.name/2011/04/06/terminal-vim-resizing/
-" Function to size up.
-function SizeUpFunc()
-	if exists("g:oldColumns")
-		return
-	endif
-	" Save the current width.
-	let g:oldColumns = &columns
-	let g:oldLines = &lines
-	" Reset column size when Vim quits.
-	au VimLeave * SizeDown
-	" Bigger width to make room for line numbers and the sign markers.
-	set columns=87 lines=999
-	" Turn on line numbers.
-	set number
-endfunction
-command SizeUp call SizeUpFunc()
-
-" Function to size down.
-function SizeDownFunc()
-	if !exists("g:oldColumns")
-		return
-	endif
-	" Restore the original size.
-	let &columns = g:oldColumns
-	let &lines = g:oldLines
-	" Remove the variable.
-	unlet g:oldColumns
-	unlet g:oldLines
-endfunction
-command SizeDown call SizeDownFunc()
-SizeUp
 
