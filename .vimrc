@@ -77,16 +77,13 @@ if has("gui_running")
 	au InsertEnter * highlight StatusLine guifg=black guibg=white 
 else
 	SizeUp
+  	au InsertLeave * highlight StatusLine ctermfg=black ctermbg=darkgrey
+  	au InsertEnter * highlight StatusLine ctermfg=black ctermbg=white
 endif
 
 set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ 
 set laststatus=2
 
-" change highlighting based on mode
-if version >= 700
-  au InsertLeave * highlight StatusLine ctermfg=black ctermbg=darkgrey
-  au InsertEnter * highlight StatusLine ctermfg=black ctermbg=white
-endif
 
 au BufRead,BufNewFile *.tex setf tex
 au BufNewFile,BufRead *.less set filetype=less
