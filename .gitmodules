@@ -22,7 +22,6 @@
 [submodule ".vim/plugins/snipmate"]
 	path = .vim/plugins/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
-	ignore = all
 [submodule ".vim/plugins/signature"]
 	path = .vim/plugins/signature
 	url = git://github.com/kshenoy/vim-signature.git
