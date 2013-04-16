@@ -1,12 +1,14 @@
-*favorites.txt* 
+*favorites* 
 
+Searching
+*			Find item under cursor
 Windows
-CTRL-W v			New vertical window
-CTRL-W w			Rotate windows
-CTRL-W o			:only, hide all others
-CTRL-W x			Exchange current window with next one.
-CTRL-W +			Increase current window height by N (default 1).
-CTRL-W -			Decrease current window height by N (default 1).
+CTRL-W v		New vertical window
+CTRL-W w		Rotate windows
+CTRL-W o		:only, hide all others
+CTRL-W x		Exchange current window with next one.
+CTRL-W +		Increase current window height by N (default 1).
+CTRL-W -		Decrease current window height by N (default 1).
 :windo {cmd}		Execute {cmd} in each window.
 :bufdo[!] {cmd}		Execute {cmd} in each buffer in the buffer list.
 :bd[elete][!] [N]	Unload buffer [N] (default: current buffer) and delete it from the buffer list.

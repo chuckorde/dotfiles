@@ -1,5 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/corde/.git'
-let g:netrw_dirhist_2='/Users/corde/Desktop/test/templates'
-let g:netrw_dirhist_3='/Users/corde/.vim/plugins/snipmate'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/corde/Desktop'
+let g:netrw_dirhist_2='/Users/corde/Desktop/test'
