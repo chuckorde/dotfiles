@@ -22,7 +22,7 @@ nnoremap <right> <nop>
 set nu
 set vb
 syntax on
-set ru
+"set ru
 set showmode
 set incsearch        "Find the next match as we type the search
 set hlsearch
@@ -76,7 +76,7 @@ if has("gui_running")
 	au InsertLeave * highlight StatusLine guifg=grey guibg=#505050 
 	au InsertEnter * highlight StatusLine guifg=black guibg=white 
 else
-	SizeUp
+	"SizeUp
   	au InsertLeave * highlight StatusLine ctermfg=black ctermbg=darkgrey
   	au InsertEnter * highlight StatusLine ctermfg=black ctermbg=white
 endif
@@ -105,4 +105,6 @@ nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 "set cm=blowfish
 
+" cycle number/rnu
+nmap <leader>l :exec &nu==&rnu? "se nu!" : "se rnu!"<cr>
 
