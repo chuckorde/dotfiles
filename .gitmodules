@@ -28,3 +28,6 @@
 [submodule ".vim/plugins/gist"]
 	path = .vim/plugins/gist
 	url = git://github.com/mattn/gist-vim.git
+[submodule ".vim/plugins/webapi"]
+	path = .vim/plugins/webapi
+	url = git://github.com/mattn/webapi-vim.git
