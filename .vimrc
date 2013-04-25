@@ -82,6 +82,7 @@ else
 endif
 
 set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ 
+set statusline+=%{fugitive#statusline()}
 set laststatus=2
 
 

@@ -2,6 +2,7 @@
 
 Searching
 *			Find item under cursor
+
 Windows
 CTRL-W v		New vertical window
 CTRL-W w		Rotate windows
