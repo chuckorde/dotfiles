@@ -1,5 +1,7 @@
 # sh -c "git clone git://github.com/chuckorde/dotfiles.git && cd dotfiles && sh README"
-# Add plugins: git submodule add http://github.com/PLUG .vim/plugins/PLUG ; git add...
+# Add plugins: 
+# git submodule add http://github.com/PLUG .vim/plugins/PLUG 
+# git add .gitmodules .vim
 #
 # Manual:
 # for i in $(ls -A); do mv $i ..; done
@@ -36,7 +38,6 @@ function modules {
 }
 
 function vim {
-	cd ${cwd}
 	cp -R .vim ..
 	cp .vimrc ..
 	modules
@@ -49,10 +50,10 @@ function all {
 
 while :
 do
-	echo "1) Copy whole envoriment"
-	echo "2) Copy whole envoriment, with backup"
-	echo "3) Copy vim envoriment"
-	echo "4) Copy vim envoriment, with backup"
+	echo "1) Copy whole environment"
+	echo "2) Copy whole environment, with backup"
+	echo "3) Copy vim environment"
+	echo "4) Copy vim environment, with backup"
 	echo "q) quit this script"
 	read -p "> " IN
 	case ${IN} in
