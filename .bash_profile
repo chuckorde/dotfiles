@@ -36,6 +36,7 @@ paths=(
 	#/usr/local/mysql/bin
 	#~/Code/Andriod/adt-bundle-mac-x86_64/sdk/platform-tools
 	#~/Code/Andriod/adt-bundle-mac-x86_64/sdk/tools
+	/usr/local/sbin
 )
 
 

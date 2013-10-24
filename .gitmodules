@@ -31,3 +31,6 @@
 [submodule ".vim/plugins/webapi"]
 	path = .vim/plugins/webapi
 	url = git://github.com/mattn/webapi-vim.git
+[submodule ".vim/plugins/jade"]
+	path = .vim/plugins/jade
+	url = git://github.com/digitaltoad/vim-jade.git
