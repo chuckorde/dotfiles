@@ -42,7 +42,7 @@ filetype plugin indent on
 
 " config / display options
 colorscheme kolor
-let g:airline_theme='base16'
+let g:airline_theme='bubblegum'
 syntax on
 set nu
 set tabstop=2
