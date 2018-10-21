@@ -55,10 +55,6 @@ set backspace=indent,eol,start
 
 " set characters for list mode
 set listchars=tab:\|-,trail:~
-
-"
-" Status line
-" set laststatus=2
 set colorcolumn=80
 
 
@@ -70,9 +66,8 @@ map <leader>c <c-_><c-_>
 
 " inoremap <leader>, <C-x><C-o>
 set completeopt=menu,menuone,longest
-" set paste
 
-" let g:ctrlp_map=''
+" ctrl p
 nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 let g:user_emmet_leader_key='<C-z>' "^z,
