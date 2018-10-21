@@ -1,111 +1,90 @@
-execute pathogen#infect( 'plugins/{}' )
-call pathogen#helptags()
+" create vim sub dirs
+if !isdirectory($HOME . '/.vim/colors')
+	echo 'Making ~/.vim/colors directory'
+	call mkdir($HOME . '/.vim/colors', 'p')
+	echo 'Downloading kolor.vim to ~/.vim/colors directory'
+	execute '!curl -fLo ~/.vim/colors/kolor.vim
+				\ https://raw.githubusercontent.com/zeis/vim-kolor/master/colors/kolor.vim'
+endif
 
-set nocompatible
-"set term=$TERM
-set t_Co=256
+if !isdirectory($HOME . '/.vim/plugs')
+	echo 'Making ~/.vim/plugs directory'
+	call mkdir($HOME . '/.vim/plugs', 'p')
+endif
 
-set listchars=tab:\|-,trail:~
-"set list
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-filetype indent on
-set autoindent
-set smartindent
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+if !isdirectory($HOME . '/.vim/autoload')
+	echo 'Making ~/.vim/autoload directory'
+	call mkdir($HOME . '/.vim/autoload', 'p')
+endif
 
-set nu
-set vb
+" Load vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+	echo 'Installing Plug...'
+	execute '!curl -fLo ~/.vim/autoload/plug.vim 
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	echo 'Please call PlugInstall'
+endif
+
+call plug#begin('~/.vim/plugs')
+Plug 'kien/ctrlp.vim'
+Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init'}
+Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
+Plug 'vim-python/python-syntax'
+Plug 'tomtom/tcomment_vim'
+Plug 'mattn/emmet-vim'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
+filetype plugin indent on
+
+" config / display options
+colorscheme kolor
+let g:airline_theme='base16'
 syntax on
-"set ru
-set showmode
-set incsearch        "Find the next match as we type the search
+set nu
+set tabstop=2
+set shiftwidth=2
+set incsearch
 set hlsearch
 set title
 set virtualedit=onemore
-"set spell
+set backspace=indent,eol,start
+
+" set characters for list mode
+set listchars=tab:\|-,trail:~
+
+"
+" Status line
+" set laststatus=2
+set colorcolumn=80
 
 
-
-" Lifted from:
-" http://www.scarpa.name/2011/04/06/terminal-vim-resizing/
-" Function to size up.
-function SizeUpFunc()
-	if exists("g:oldColumns")
-		return
-	endif
-	" Save the current width.
-	let g:oldColumns = &columns
-	let g:oldLines = &lines
-	" Reset column size when Vim quits.
-	au VimLeave * SizeDown
-	" Bigger width to make room for line numbers and the sign markers.
-	set columns=85 lines=999
-endfunction
-command SizeUp call SizeUpFunc()
-
-" Function to size down.
-function SizeDownFunc()
-	if !exists("g:oldColumns")
-		return
-	endif
-	" Restore the original size.
-	let &columns = g:oldColumns
-	let &lines = g:oldLines
-	" Remove the variable.
-	unlet g:oldColumns
-	unlet g:oldLines
-endfunction
-command SizeDown call SizeDownFunc()
-
-
-
-colorscheme kolor
-"colorscheme pychimp 
-
-if has("gui_running")
-	"colorscheme macvim
-	set gfn=Monaco:h12
-	set guioptions-=T
-	set guioptions-=r
-	au InsertLeave * highlight StatusLine guifg=grey guibg=#505050 
-	au InsertEnter * highlight StatusLine guifg=black guibg=white 
-else
-	"SizeUp
-  	au InsertLeave * highlight StatusLine ctermfg=black ctermbg=darkgrey
-  	au InsertEnter * highlight StatusLine ctermfg=black ctermbg=white
-endif
-
-set statusline=%t\ %m%r%y%=(ascii=\%03.3b,hex=\%02.2B)\ (%l/%L,%c)\ 
-set statusline+=%{fugitive#statusline()}
-set laststatus=2
-
-
-au BufRead,BufNewFile *.tex setf tex
-au BufNewFile,BufRead *.less set filetype=less
-au BufRead,BufNewFile bash-fc-* set filetype=sh
-
+" set leaderkey
 let mapleader=","
 
-filetype plugin on
-"
 " comment line -- t-coment
 map <leader>c <c-_><c-_>
 
-inoremap <leader>, <C-x><C-o>
+" inoremap <leader>, <C-x><C-o>
 set completeopt=menu,menuone,longest
-let g:user_zen_leader_key = '<C-e>'
+" set paste
 
-let g:ctrlp_map=''
+" let g:ctrlp_map=''
 nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-"set cm=blowfish
+let g:user_emmet_leader_key='<C-z>' "^z,
+"
+" splits
+" really should use c-ws and c-wv with c-wr to swap
+" also c-wH and c-wK
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
 
 " cycle number/rnu
 nmap <leader>l :exec &nu==&rnu? "se nu!" : "se rnu!"<cr>
-
+nmap <leader>m :exec &lines==24? "se lines=80" : "se lines=24"<cr>

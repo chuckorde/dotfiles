@@ -1,54 +1,29 @@
-#
-#
 set -o vi
 
-alias h='history'
-alias l='ls -l'
-alias ll='ls -latrF'
-alias eject='drutil eject'
+alias h='history | grep'
+alias l='ls -lh'
+alias ll='ls -latrFh'
+#alias vi='vim'
 alias cdc='cd ~/Code'
 alias cdd='cd ~/Desktop'
 alias httphead='curl -I'
-alias psg='ps ax | grep'
-alias tree="find . \( ! -regex '.*/\..*' \) | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-#alias apachectl='sudo apachectl'
-
-function md {
-	mkdir -p $@ && cd $@
-}
-
-contains() {
-	find . -exec grep -il $@ {} 2>/dev/null \;
-}
+# alias psg='ps ax | grep' # use pgrep
 
 export PS1='${OOO}\w{\!}[$?] '
-
-# Out of office, or generally confused
-alias ooo="export OOO=$(uname -n):; export PS1"
 
 
 paths=(
 	${HOME}/bin
-	/usr/texbin 
-	/usr/local/Cellar/nmap/6.01/bin 
-	/usr/local/heroku/bin
-	/usr/local/share/npm/bin
-	#/usr/local/mysql/bin
-	#~/Code/Andriod/adt-bundle-mac-x86_64/sdk/platform-tools
-	#~/Code/Andriod/adt-bundle-mac-x86_64/sdk/tools
 	/usr/local/sbin
 )
 
-
 path=""
 
-for p in ${paths[@]} 
+for p in ${paths[@]}
 do
 	[ -d ${p} ] && path+=:${p}
 done
-
-export PATH=${PATH}${path}
-
+export PATH=${path:1}:${PATH}
 unset path p
 
-
+PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
