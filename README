@@ -1,1 +1,22 @@
-cp .[a-zA-Z0-9]* $HOME
+PYTHON=python
+set -x
+
+cp $(ls -ap | grep -v '/\|README*' | xargs) ~/
+if [ "$#" > 0 ]; then
+	if [ "$1" == "--copy-only" ]; then
+		echo '** copy only **'
+		echo '* manual plugin configuration required'
+		exit
+	fi
+fi
+
+vim +PlugInstall +qall
+
+if [ "$(uname)" == "Darwin" ]; then
+		xcode-select --install
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		sudo apt install build-essential cmake python3-dev
+fi
+
+cd ~/.vim/plugs/YouCompleteMe
+$PYTHON install.py --clang-completer

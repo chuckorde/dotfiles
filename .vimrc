@@ -1,8 +1,8 @@
+set nocompatible
+
 " create vim sub dirs
 if !isdirectory($HOME . '/.vim/colors')
-	echo 'Making ~/.vim/colors directory'
-	call mkdir($HOME . '/.vim/colors', 'p')
-	echo 'Downloading kolor.vim to ~/.vim/colors directory'
+	execute '!git clone https://github.com/flazz/vim-colorschemes.git ~/.vim/'
 	execute '!curl -fLo ~/.vim/colors/kolor.vim
 				\ https://raw.githubusercontent.com/zeis/vim-kolor/master/colors/kolor.vim'
 endif
@@ -22,12 +22,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	echo 'Installing Plug...'
 	execute '!curl -fLo ~/.vim/autoload/plug.vim 
 				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	echo 'Please call PlugInstall'
+	echo 'Press enter if run from `bash README` OR call PlugInstall'
 endif
 
 call plug#begin('~/.vim/plugs')
 Plug 'kien/ctrlp.vim'
-Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init'}
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 Plug 'vim-python/python-syntax'
 Plug 'tomtom/tcomment_vim'
@@ -36,6 +35,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 filetype plugin indent on
