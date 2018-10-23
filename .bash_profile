@@ -7,7 +7,7 @@ alias cdc='cd ~/Code'
 alias cdd='cd ~/Desktop'
 alias httphead='curl -I'
 
-function maven_project {	
+function new_maven_project {	
 	mvn -B archetype:generate \
 		-DgroupId=com.chuckorde.app \
 		-DarchetypeArtifactId=maven-archetype-quickstart \
@@ -15,7 +15,7 @@ function maven_project {
 		-DinteractiveMode=false
 }	
 
-function jrun {
+function run_maven_project {	
 	java -cp target/$(basename `pwd`)-1.0-SNAPSHOT.jar com.chuckorde.app.App
 }
 

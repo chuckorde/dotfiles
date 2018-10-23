@@ -1,8 +1,8 @@
 PYTHON=python
 set -x
 
-cp $(ls -ap | grep -v '/\|README*' | xargs) ~/
-if [ "$#" > 0 ]; then
+cp -R $(ls -ap | grep -v './\|.git/\|README*' | xargs) ~/
+if [ "$#" -gt 0 ]; then
 	if [ "$1" == "--copy-only" ]; then
 		echo '** copy only **'
 		echo '* manual plugin configuration required'
