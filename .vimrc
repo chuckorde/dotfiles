@@ -36,6 +36,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 filetype plugin indent on
@@ -57,21 +59,26 @@ set backspace=indent,eol,start
 set listchars=tab:\|-,trail:~
 set colorcolumn=80
 
-
 " set leaderkey
 let mapleader=","
+set completeopt=menu,menuone,longest
+
 
 " comment line -- t-coment
 map <leader>c <c-_><c-_>
 
-" inoremap <leader>, <C-x><C-o>
-set completeopt=menu,menuone,longest
-
-" ctrl p
+" Ctrl p
 nnoremap <silent> <leader>o :CtrlPCurWD<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+
+" Emmit
 let g:user_emmet_leader_key='<C-z>' "^z,
-"
+
+" UtilSnip
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsListSnippets='<C-l>'
+let g:UltiSnipsEditSplit='horizontal'
+
 " splits
 " really should use c-ws and c-wv with c-wr to swap
 " also c-wH and c-wK
