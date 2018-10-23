@@ -1,4 +1,4 @@
-PYTHON=python3
+PYTHON=python
 set -x
 
 cp $(ls -ap | grep -v '/\|README*' | xargs) ~/
