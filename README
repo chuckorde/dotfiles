@@ -1,7 +1,10 @@
 PYTHON=python3
-set -x
+#set -x
 
-cp -R $(ls -ap | grep -v './\|.git/\|README*' | xargs) ~/
+for f in $(ls -1A | grep -v 'README\|.git$'); do
+	cp -R $f $HOME
+done 
+
 if [ "$#" -gt 0 ]; then
 	if [ "$1" == "--copy-only" ]; then
 		echo '** copy only **'
